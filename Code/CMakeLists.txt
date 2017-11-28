@@ -76,6 +76,7 @@ add_subdirectory(24-maps)
 # Homework
 add_subdirectory(H01-swap)
 add_subdirectory(H02-arrays)
+add_subdirectory(H03-reverse-engineering)
 add_subdirectory(H04-points-triangles)
 add_subdirectory(H05-copy-move)
 add_subdirectory(H06-derivatives)
