@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/copy-move.dir/src/copy-move.cxx.o  -o copy-move -rdynamic 

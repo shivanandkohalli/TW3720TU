@@ -1,0 +1,17 @@
+# Force CMake version 3.1 or above
+cmake_minimum_required (VERSION 3.1)
+
+# This project has the name: H05-copy-move
+project (H05-copy-move)
+
+# Create an executable named 'points-triangles' from the source file 'points-triangles.cxx'
+add_executable(copy-move src/copy-move.cxx)
+
+# Define C++11 standard
+set_property(TARGET copy-move PROPERTY CXX_STANDARD 11)
+
+# Add test called "points-triangles-test" based on the executable "points-triangles"
+add_test (copy-move-test copy-move)
+
+# Create an additional target for assignment submission
+add_assignment(copy-move src/copy-move.cxx)

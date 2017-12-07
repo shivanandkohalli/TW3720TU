@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/pointers.dir/src/pointers.cxx.o  -o pointers -rdynamic 

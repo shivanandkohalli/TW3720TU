@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/traits.dir/src/traits.cxx.o  -o traits -rdynamic 

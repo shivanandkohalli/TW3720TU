@@ -1,0 +1,68 @@
+/**
+ * \file reverse=engineering.cxx
+ *
+ * This file is part of the course tw3720tu:
+ * Object Oriented Scientific Programming with C++
+ *
+ */
+
+// Include header file for standard input/output stream library
+#include <iostream>
+
+// The global main function that is the designated start of the program
+int main(){
+
+    int a = 1;
+    int b = 2;
+    int c = 3;
+    const int d = 42;
+
+    {
+        auto b = ++a + c++;
+        auto e = b;
+        c += ++b;
+    }
+
+    int *p = &a;
+    int *q = &b;
+
+    ++(*q);
+    *p += a++ + (*p)++;
+
+    int A[] = {1, 2, 3, 4, 5};
+    int *r = A;
+
+    int e(*(r+3));
+
+    double f = 0;
+    int g;
+    for (g = 0; g < 5; g++)
+        f += A[g] / 5;
+    
+    std::cout << "a = " << a << std::endl;
+    std::cout << "b = " << b << std::endl;
+    std::cout << "c = " << c << std::endl;
+    std::cout << "d = " << d << std::endl;
+    std::cout << "e = " << e << std::endl;
+    std::cout << "f = " << f << std::endl;
+    std::cout << "g = " << g << std::endl;
+    
+    // Return code 0 to the operating system (=no error)
+    return 0;
+}
+=== Start Environment 
+PROJECT_NAME = H03-reverse-engineering
+CMAKE_SYSTEM = Linux-4.4.0-97-generic
+CMAKE_VERSION = 3.2.2
+CMAKE_CXX_COMPILER_ID = GNU
+CMAKE_CXX_COMPILER_VERSION = 4.8.4
+=== End Environment 
+=== Start of output from execution of binary reverse-engineering
+a = 9
+b = 3
+c = 10
+d = 42
+e = 4
+f = 1
+g = 5
+=== End of output from execution of binary reverse-engineering

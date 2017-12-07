@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/points-triangles.dir/src/points-triangles.cxx.o  -o points-triangles -rdynamic 

@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/shiva/Code/Cpp_shiv/TW3720TU/Code/08-dot-product-struct2/src/dot-product-struct2.cxx
+iostream
+-
+exception
+-
+initializer_list
+-
+memory
+-
+

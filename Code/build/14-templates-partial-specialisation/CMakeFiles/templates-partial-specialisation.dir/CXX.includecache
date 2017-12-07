@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/shiva/Code/Cpp_shiv/TW3720TU/Code/14-templates-partial-specialisation/src/templates-partial-specialisation.cxx
+iostream
+-
+typeinfo
+-
+
