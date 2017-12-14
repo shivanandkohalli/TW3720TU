@@ -111,6 +111,58 @@ depend:
 	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+H07-templates/CMakeFiles/templates_ex.dir/rule:
+	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(MAKE) -f CMakeFiles/Makefile2 H07-templates/CMakeFiles/templates_ex.dir/rule
+.PHONY : H07-templates/CMakeFiles/templates_ex.dir/rule
+
+# Convenience name for target.
+templates_ex: H07-templates/CMakeFiles/templates_ex.dir/rule
+.PHONY : templates_ex
+
+# fast build rule for target.
+templates_ex/fast:
+	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(MAKE) -f H07-templates/CMakeFiles/templates_ex.dir/build.make H07-templates/CMakeFiles/templates_ex.dir/build
+.PHONY : templates_ex/fast
+
+# Convenience name for target.
+H07-templates/CMakeFiles/templates_ex_assignment.dir/rule:
+	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(MAKE) -f CMakeFiles/Makefile2 H07-templates/CMakeFiles/templates_ex_assignment.dir/rule
+.PHONY : H07-templates/CMakeFiles/templates_ex_assignment.dir/rule
+
+# Convenience name for target.
+templates_ex_assignment: H07-templates/CMakeFiles/templates_ex_assignment.dir/rule
+.PHONY : templates_ex_assignment
+
+# fast build rule for target.
+templates_ex_assignment/fast:
+	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(MAKE) -f H07-templates/CMakeFiles/templates_ex_assignment.dir/build.make H07-templates/CMakeFiles/templates_ex_assignment.dir/build
+.PHONY : templates_ex_assignment/fast
+
+src/templates_ex.o: src/templates_ex.cxx.o
+.PHONY : src/templates_ex.o
+
+# target to build an object file
+src/templates_ex.cxx.o:
+	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(MAKE) -f H07-templates/CMakeFiles/templates_ex.dir/build.make H07-templates/CMakeFiles/templates_ex.dir/src/templates_ex.cxx.o
+.PHONY : src/templates_ex.cxx.o
+
+src/templates_ex.i: src/templates_ex.cxx.i
+.PHONY : src/templates_ex.i
+
+# target to preprocess a source file
+src/templates_ex.cxx.i:
+	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(MAKE) -f H07-templates/CMakeFiles/templates_ex.dir/build.make H07-templates/CMakeFiles/templates_ex.dir/src/templates_ex.cxx.i
+.PHONY : src/templates_ex.cxx.i
+
+src/templates_ex.s: src/templates_ex.cxx.s
+.PHONY : src/templates_ex.s
+
+# target to generate assembly for a file
+src/templates_ex.cxx.s:
+	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(MAKE) -f H07-templates/CMakeFiles/templates_ex.dir/build.make H07-templates/CMakeFiles/templates_ex.dir/src/templates_ex.cxx.s
+.PHONY : src/templates_ex.cxx.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -119,7 +171,12 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... templates_ex_assignment"
+	@echo "... templates_ex"
 	@echo "... test"
+	@echo "... src/templates_ex.o"
+	@echo "... src/templates_ex.i"
+	@echo "... src/templates_ex.s"
 .PHONY : help
 
 

@@ -182,6 +182,10 @@ set(CMAKE_DEPEND_INFO_FILES
   "H04-points-triangles/CMakeFiles/points-triangles_assignment.dir/DependInfo.cmake"
   "H05-copy-move/CMakeFiles/hcopy-move_assignment.dir/DependInfo.cmake"
   "H05-copy-move/CMakeFiles/hcopy-move.dir/DependInfo.cmake"
+  "H06-derivatives/CMakeFiles/finite_derivatives.dir/DependInfo.cmake"
+  "H06-derivatives/CMakeFiles/finite_derivatives_assignment.dir/DependInfo.cmake"
+  "H07-templates/CMakeFiles/templates_ex_assignment.dir/DependInfo.cmake"
+  "H07-templates/CMakeFiles/templates_ex.dir/DependInfo.cmake"
   "H10-add-vectors/CMakeFiles/add-vectors.dir/DependInfo.cmake"
   "H10-add-vectors/CMakeFiles/add-vectors_assignment.dir/DependInfo.cmake"
   )

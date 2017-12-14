@@ -20,6 +20,7 @@
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/CMakeFiles/Nightly.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/CMakeFiles/ExperimentalBuild.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/CMakeFiles/ContinuousBuild.dir
+/home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/H06-derivatives/CMakeFiles/finite_derivatives.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/18-complex-conjugate/CMakeFiles/complex-conjugate.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/03-pointers/CMakeFiles/pointers.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/CMakeFiles/Continuous.dir
@@ -34,11 +35,13 @@
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/H04-points-triangles/CMakeFiles/points-triangles.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/H10-add-vectors/CMakeFiles/add-vectors_assignment.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/11-polymorphism/CMakeFiles/polymorphism.dir
+/home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/H07-templates/CMakeFiles/templates_ex_assignment.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/CMakeFiles/NightlyMemCheck.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/CMakeFiles/ExperimentalConfigure.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/01-hello/CMakeFiles/hello.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/21-algorithm/CMakeFiles/algorithm.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/10-integration/CMakeFiles/integration.dir
+/home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/H07-templates/CMakeFiles/templates_ex.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/13-templates/CMakeFiles/templates.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/24-maps/CMakeFiles/maps.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/H02-arrays/CMakeFiles/arrays_assignment.dir
@@ -61,5 +64,6 @@
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/H02-arrays/CMakeFiles/arrays.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/CMakeFiles/ExperimentalSubmit.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/20-containers/CMakeFiles/containers.dir
+/home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/H06-derivatives/CMakeFiles/finite_derivatives_assignment.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/CMakeFiles/ContinuousSubmit.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/H01-swap/CMakeFiles/swap.dir

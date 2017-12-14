@@ -931,6 +931,58 @@ hcopy-move_assignment/fast:
 .PHONY : hcopy-move_assignment/fast
 
 #=============================================================================
+# Target rules for targets named finite_derivatives
+
+# Build rule for target.
+finite_derivatives: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 finite_derivatives
+.PHONY : finite_derivatives
+
+# fast build rule for target.
+finite_derivatives/fast:
+	$(MAKE) -f H06-derivatives/CMakeFiles/finite_derivatives.dir/build.make H06-derivatives/CMakeFiles/finite_derivatives.dir/build
+.PHONY : finite_derivatives/fast
+
+#=============================================================================
+# Target rules for targets named finite_derivatives_assignment
+
+# Build rule for target.
+finite_derivatives_assignment: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 finite_derivatives_assignment
+.PHONY : finite_derivatives_assignment
+
+# fast build rule for target.
+finite_derivatives_assignment/fast:
+	$(MAKE) -f H06-derivatives/CMakeFiles/finite_derivatives_assignment.dir/build.make H06-derivatives/CMakeFiles/finite_derivatives_assignment.dir/build
+.PHONY : finite_derivatives_assignment/fast
+
+#=============================================================================
+# Target rules for targets named templates_ex
+
+# Build rule for target.
+templates_ex: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 templates_ex
+.PHONY : templates_ex
+
+# fast build rule for target.
+templates_ex/fast:
+	$(MAKE) -f H07-templates/CMakeFiles/templates_ex.dir/build.make H07-templates/CMakeFiles/templates_ex.dir/build
+.PHONY : templates_ex/fast
+
+#=============================================================================
+# Target rules for targets named templates_ex_assignment
+
+# Build rule for target.
+templates_ex_assignment: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 templates_ex_assignment
+.PHONY : templates_ex_assignment
+
+# fast build rule for target.
+templates_ex_assignment/fast:
+	$(MAKE) -f H07-templates/CMakeFiles/templates_ex_assignment.dir/build.make H07-templates/CMakeFiles/templates_ex_assignment.dir/build
+.PHONY : templates_ex_assignment/fast
+
+#=============================================================================
 # Target rules for targets named add-vectors
 
 # Build rule for target.
@@ -1028,6 +1080,10 @@ help:
 	@echo "... points-triangles_assignment"
 	@echo "... hcopy-move_assignment"
 	@echo "... hcopy-move"
+	@echo "... finite_derivatives"
+	@echo "... finite_derivatives_assignment"
+	@echo "... templates_ex_assignment"
+	@echo "... templates_ex"
 	@echo "... add-vectors"
 	@echo "... add-vectors_assignment"
 .PHONY : help
