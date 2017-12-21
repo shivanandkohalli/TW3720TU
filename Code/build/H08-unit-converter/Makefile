@@ -111,6 +111,58 @@ depend:
 	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+H08-unit-converter/CMakeFiles/unit_convertor.dir/rule:
+	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(MAKE) -f CMakeFiles/Makefile2 H08-unit-converter/CMakeFiles/unit_convertor.dir/rule
+.PHONY : H08-unit-converter/CMakeFiles/unit_convertor.dir/rule
+
+# Convenience name for target.
+unit_convertor: H08-unit-converter/CMakeFiles/unit_convertor.dir/rule
+.PHONY : unit_convertor
+
+# fast build rule for target.
+unit_convertor/fast:
+	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(MAKE) -f H08-unit-converter/CMakeFiles/unit_convertor.dir/build.make H08-unit-converter/CMakeFiles/unit_convertor.dir/build
+.PHONY : unit_convertor/fast
+
+# Convenience name for target.
+H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/rule:
+	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(MAKE) -f CMakeFiles/Makefile2 H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/rule
+.PHONY : H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/rule
+
+# Convenience name for target.
+unit_convertor_assignment: H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/rule
+.PHONY : unit_convertor_assignment
+
+# fast build rule for target.
+unit_convertor_assignment/fast:
+	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(MAKE) -f H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/build.make H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/build
+.PHONY : unit_convertor_assignment/fast
+
+src/unit_convertor.o: src/unit_convertor.cxx.o
+.PHONY : src/unit_convertor.o
+
+# target to build an object file
+src/unit_convertor.cxx.o:
+	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(MAKE) -f H08-unit-converter/CMakeFiles/unit_convertor.dir/build.make H08-unit-converter/CMakeFiles/unit_convertor.dir/src/unit_convertor.cxx.o
+.PHONY : src/unit_convertor.cxx.o
+
+src/unit_convertor.i: src/unit_convertor.cxx.i
+.PHONY : src/unit_convertor.i
+
+# target to preprocess a source file
+src/unit_convertor.cxx.i:
+	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(MAKE) -f H08-unit-converter/CMakeFiles/unit_convertor.dir/build.make H08-unit-converter/CMakeFiles/unit_convertor.dir/src/unit_convertor.cxx.i
+.PHONY : src/unit_convertor.cxx.i
+
+src/unit_convertor.s: src/unit_convertor.cxx.s
+.PHONY : src/unit_convertor.s
+
+# target to generate assembly for a file
+src/unit_convertor.cxx.s:
+	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(MAKE) -f H08-unit-converter/CMakeFiles/unit_convertor.dir/build.make H08-unit-converter/CMakeFiles/unit_convertor.dir/src/unit_convertor.cxx.s
+.PHONY : src/unit_convertor.cxx.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -119,7 +171,12 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... unit_convertor_assignment"
 	@echo "... test"
+	@echo "... unit_convertor"
+	@echo "... src/unit_convertor.o"
+	@echo "... src/unit_convertor.i"
+	@echo "... src/unit_convertor.s"
 .PHONY : help
 
 

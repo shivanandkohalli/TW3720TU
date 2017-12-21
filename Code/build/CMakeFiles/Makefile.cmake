@@ -186,6 +186,8 @@ set(CMAKE_DEPEND_INFO_FILES
   "H06-derivatives/CMakeFiles/finite_derivatives_assignment.dir/DependInfo.cmake"
   "H07-templates/CMakeFiles/templates_ex_assignment.dir/DependInfo.cmake"
   "H07-templates/CMakeFiles/templates_ex.dir/DependInfo.cmake"
+  "H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/DependInfo.cmake"
+  "H08-unit-converter/CMakeFiles/unit_convertor.dir/DependInfo.cmake"
   "H10-add-vectors/CMakeFiles/add-vectors.dir/DependInfo.cmake"
   "H10-add-vectors/CMakeFiles/add-vectors_assignment.dir/DependInfo.cmake"
   )

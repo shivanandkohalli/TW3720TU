@@ -8,7 +8,7 @@ project (H08-unit-converter)
 add_executable(unit_convertor src/unit_convertor.cxx)
 
 # Define C++11 standard
-set_property(TARGET unit_convertor PROPERTY CXX_STANDARD 11)
+set_property(TARGET unit_convertor_ex PROPERTY CXX_STANDARD 11)
 
 # Add test called "points-triangles-test" based on the executable "points-triangles"
 add_test (unit_convertor-test unit_convertor)

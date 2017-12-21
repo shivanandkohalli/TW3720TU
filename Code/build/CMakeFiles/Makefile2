@@ -1042,7 +1042,7 @@ clean: 01-hello/CMakeFiles/hello.dir/clean
 02-variables-constants/CMakeFiles/variables-constants.dir/all:
 	$(MAKE) -f 02-variables-constants/CMakeFiles/variables-constants.dir/build.make 02-variables-constants/CMakeFiles/variables-constants.dir/depend
 	$(MAKE) -f 02-variables-constants/CMakeFiles/variables-constants.dir/build.make 02-variables-constants/CMakeFiles/variables-constants.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/CMakeFiles  33
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/CMakeFiles  34
 	@echo "Built target variables-constants"
 .PHONY : 02-variables-constants/CMakeFiles/variables-constants.dir/all
 
@@ -2748,16 +2748,83 @@ clean: H07-templates/CMakeFiles/templates_ex_assignment.dir/clean
 # Directory level rules for directory H08-unit-converter
 
 # Convenience name for "all" pass in the directory.
-H08-unit-converter/all:
+H08-unit-converter/all: H08-unit-converter/CMakeFiles/unit_convertor.dir/all
 .PHONY : H08-unit-converter/all
 
 # Convenience name for "clean" pass in the directory.
-H08-unit-converter/clean:
+H08-unit-converter/clean: H08-unit-converter/CMakeFiles/unit_convertor.dir/clean
+H08-unit-converter/clean: H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/clean
 .PHONY : H08-unit-converter/clean
 
 # Convenience name for "preinstall" pass in the directory.
 H08-unit-converter/preinstall:
 .PHONY : H08-unit-converter/preinstall
+
+#=============================================================================
+# Target rules for target H08-unit-converter/CMakeFiles/unit_convertor.dir
+
+# All Build rule for target.
+H08-unit-converter/CMakeFiles/unit_convertor.dir/all:
+	$(MAKE) -f H08-unit-converter/CMakeFiles/unit_convertor.dir/build.make H08-unit-converter/CMakeFiles/unit_convertor.dir/depend
+	$(MAKE) -f H08-unit-converter/CMakeFiles/unit_convertor.dir/build.make H08-unit-converter/CMakeFiles/unit_convertor.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/CMakeFiles  33
+	@echo "Built target unit_convertor"
+.PHONY : H08-unit-converter/CMakeFiles/unit_convertor.dir/all
+
+# Include target in all.
+all: H08-unit-converter/CMakeFiles/unit_convertor.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+H08-unit-converter/CMakeFiles/unit_convertor.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 H08-unit-converter/CMakeFiles/unit_convertor.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/CMakeFiles 0
+.PHONY : H08-unit-converter/CMakeFiles/unit_convertor.dir/rule
+
+# Convenience name for target.
+unit_convertor: H08-unit-converter/CMakeFiles/unit_convertor.dir/rule
+.PHONY : unit_convertor
+
+# clean rule for target.
+H08-unit-converter/CMakeFiles/unit_convertor.dir/clean:
+	$(MAKE) -f H08-unit-converter/CMakeFiles/unit_convertor.dir/build.make H08-unit-converter/CMakeFiles/unit_convertor.dir/clean
+.PHONY : H08-unit-converter/CMakeFiles/unit_convertor.dir/clean
+
+# clean rule for target.
+clean: H08-unit-converter/CMakeFiles/unit_convertor.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir
+
+# All Build rule for target.
+H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/all: H08-unit-converter/CMakeFiles/unit_convertor.dir/all
+	$(MAKE) -f H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/build.make H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/depend
+	$(MAKE) -f H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/build.make H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/CMakeFiles 
+	@echo "Built target unit_convertor_assignment"
+.PHONY : H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/all
+
+# Build rule for subdir invocation for target.
+H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/CMakeFiles 0
+.PHONY : H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/rule
+
+# Convenience name for target.
+unit_convertor_assignment: H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/rule
+.PHONY : unit_convertor_assignment
+
+# clean rule for target.
+H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/clean:
+	$(MAKE) -f H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/build.make H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/clean
+.PHONY : H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/clean
+
+# clean rule for target.
+clean: H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/clean
+.PHONY : clean
 
 #=============================================================================
 # Directory level rules for directory H09-symbolic-differentiation

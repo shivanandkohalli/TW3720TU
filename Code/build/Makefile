@@ -983,6 +983,32 @@ templates_ex_assignment/fast:
 .PHONY : templates_ex_assignment/fast
 
 #=============================================================================
+# Target rules for targets named unit_convertor
+
+# Build rule for target.
+unit_convertor: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 unit_convertor
+.PHONY : unit_convertor
+
+# fast build rule for target.
+unit_convertor/fast:
+	$(MAKE) -f H08-unit-converter/CMakeFiles/unit_convertor.dir/build.make H08-unit-converter/CMakeFiles/unit_convertor.dir/build
+.PHONY : unit_convertor/fast
+
+#=============================================================================
+# Target rules for targets named unit_convertor_assignment
+
+# Build rule for target.
+unit_convertor_assignment: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 unit_convertor_assignment
+.PHONY : unit_convertor_assignment
+
+# fast build rule for target.
+unit_convertor_assignment/fast:
+	$(MAKE) -f H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/build.make H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/build
+.PHONY : unit_convertor_assignment/fast
+
+#=============================================================================
 # Target rules for targets named add-vectors
 
 # Build rule for target.
@@ -1084,6 +1110,8 @@ help:
 	@echo "... finite_derivatives_assignment"
 	@echo "... templates_ex_assignment"
 	@echo "... templates_ex"
+	@echo "... unit_convertor_assignment"
+	@echo "... unit_convertor"
 	@echo "... add-vectors"
 	@echo "... add-vectors_assignment"
 .PHONY : help
