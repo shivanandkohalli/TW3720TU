@@ -33,6 +33,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../23-linalg/CMakeLists.txt"
   "../24-maps/CMakeLists.txt"
   "../CMakeLists.txt"
+  "../Final-project/CMakeLists.txt"
   "../H01-swap/CMakeLists.txt"
   "../H02-arrays/CMakeLists.txt"
   "../H03-reverse-engineering/CMakeLists.txt"
@@ -115,6 +116,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "H08-unit-converter/CMakeFiles/CMakeDirectoryInformation.cmake"
   "H09-symbolic-differentiation/CMakeFiles/CMakeDirectoryInformation.cmake"
   "H10-add-vectors/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "Final-project/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -192,4 +194,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "H09-symbolic-differentiation/CMakeFiles/symbolic_diff_assignment.dir/DependInfo.cmake"
   "H10-add-vectors/CMakeFiles/add-vectors.dir/DependInfo.cmake"
   "H10-add-vectors/CMakeFiles/add-vectors_assignment.dir/DependInfo.cmake"
+  "Final-project/CMakeFiles/final_assignment.dir/DependInfo.cmake"
+  "Final-project/CMakeFiles/final.dir/DependInfo.cmake"
   )

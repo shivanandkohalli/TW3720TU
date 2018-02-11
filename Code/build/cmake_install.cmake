@@ -69,6 +69,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/H08-unit-converter/cmake_install.cmake")
   include("/home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/H09-symbolic-differentiation/cmake_install.cmake")
   include("/home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/H10-add-vectors/cmake_install.cmake")
+  include("/home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/Final-project/cmake_install.cmake")
 
 endif()
 

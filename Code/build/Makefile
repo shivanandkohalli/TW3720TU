@@ -1060,6 +1060,32 @@ add-vectors_assignment/fast:
 	$(MAKE) -f H10-add-vectors/CMakeFiles/add-vectors_assignment.dir/build.make H10-add-vectors/CMakeFiles/add-vectors_assignment.dir/build
 .PHONY : add-vectors_assignment/fast
 
+#=============================================================================
+# Target rules for targets named final
+
+# Build rule for target.
+final: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 final
+.PHONY : final
+
+# fast build rule for target.
+final/fast:
+	$(MAKE) -f Final-project/CMakeFiles/final.dir/build.make Final-project/CMakeFiles/final.dir/build
+.PHONY : final/fast
+
+#=============================================================================
+# Target rules for targets named final_assignment
+
+# Build rule for target.
+final_assignment: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 final_assignment
+.PHONY : final_assignment
+
+# fast build rule for target.
+final_assignment/fast:
+	$(MAKE) -f Final-project/CMakeFiles/final_assignment.dir/build.make Final-project/CMakeFiles/final_assignment.dir/build
+.PHONY : final_assignment/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1142,6 +1168,8 @@ help:
 	@echo "... symbolic_diff_assignment"
 	@echo "... add-vectors"
 	@echo "... add-vectors_assignment"
+	@echo "... final_assignment"
+	@echo "... final"
 .PHONY : help
 
 
