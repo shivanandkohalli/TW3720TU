@@ -188,6 +188,8 @@ set(CMAKE_DEPEND_INFO_FILES
   "H07-templates/CMakeFiles/templates_ex.dir/DependInfo.cmake"
   "H08-unit-converter/CMakeFiles/unit_convertor_assignment.dir/DependInfo.cmake"
   "H08-unit-converter/CMakeFiles/unit_convertor.dir/DependInfo.cmake"
+  "H09-symbolic-differentiation/CMakeFiles/symbolic_diff.dir/DependInfo.cmake"
+  "H09-symbolic-differentiation/CMakeFiles/symbolic_diff_assignment.dir/DependInfo.cmake"
   "H10-add-vectors/CMakeFiles/add-vectors.dir/DependInfo.cmake"
   "H10-add-vectors/CMakeFiles/add-vectors_assignment.dir/DependInfo.cmake"
   )

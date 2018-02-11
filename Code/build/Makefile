@@ -1009,6 +1009,32 @@ unit_convertor_assignment/fast:
 .PHONY : unit_convertor_assignment/fast
 
 #=============================================================================
+# Target rules for targets named symbolic_diff
+
+# Build rule for target.
+symbolic_diff: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 symbolic_diff
+.PHONY : symbolic_diff
+
+# fast build rule for target.
+symbolic_diff/fast:
+	$(MAKE) -f H09-symbolic-differentiation/CMakeFiles/symbolic_diff.dir/build.make H09-symbolic-differentiation/CMakeFiles/symbolic_diff.dir/build
+.PHONY : symbolic_diff/fast
+
+#=============================================================================
+# Target rules for targets named symbolic_diff_assignment
+
+# Build rule for target.
+symbolic_diff_assignment: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 symbolic_diff_assignment
+.PHONY : symbolic_diff_assignment
+
+# fast build rule for target.
+symbolic_diff_assignment/fast:
+	$(MAKE) -f H09-symbolic-differentiation/CMakeFiles/symbolic_diff_assignment.dir/build.make H09-symbolic-differentiation/CMakeFiles/symbolic_diff_assignment.dir/build
+.PHONY : symbolic_diff_assignment/fast
+
+#=============================================================================
 # Target rules for targets named add-vectors
 
 # Build rule for target.
@@ -1112,6 +1138,8 @@ help:
 	@echo "... templates_ex"
 	@echo "... unit_convertor_assignment"
 	@echo "... unit_convertor"
+	@echo "... symbolic_diff"
+	@echo "... symbolic_diff_assignment"
 	@echo "... add-vectors"
 	@echo "... add-vectors_assignment"
 .PHONY : help

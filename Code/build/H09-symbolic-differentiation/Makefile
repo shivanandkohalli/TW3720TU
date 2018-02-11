@@ -111,6 +111,58 @@ depend:
 	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+H09-symbolic-differentiation/CMakeFiles/symbolic_diff.dir/rule:
+	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(MAKE) -f CMakeFiles/Makefile2 H09-symbolic-differentiation/CMakeFiles/symbolic_diff.dir/rule
+.PHONY : H09-symbolic-differentiation/CMakeFiles/symbolic_diff.dir/rule
+
+# Convenience name for target.
+symbolic_diff: H09-symbolic-differentiation/CMakeFiles/symbolic_diff.dir/rule
+.PHONY : symbolic_diff
+
+# fast build rule for target.
+symbolic_diff/fast:
+	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(MAKE) -f H09-symbolic-differentiation/CMakeFiles/symbolic_diff.dir/build.make H09-symbolic-differentiation/CMakeFiles/symbolic_diff.dir/build
+.PHONY : symbolic_diff/fast
+
+# Convenience name for target.
+H09-symbolic-differentiation/CMakeFiles/symbolic_diff_assignment.dir/rule:
+	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(MAKE) -f CMakeFiles/Makefile2 H09-symbolic-differentiation/CMakeFiles/symbolic_diff_assignment.dir/rule
+.PHONY : H09-symbolic-differentiation/CMakeFiles/symbolic_diff_assignment.dir/rule
+
+# Convenience name for target.
+symbolic_diff_assignment: H09-symbolic-differentiation/CMakeFiles/symbolic_diff_assignment.dir/rule
+.PHONY : symbolic_diff_assignment
+
+# fast build rule for target.
+symbolic_diff_assignment/fast:
+	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(MAKE) -f H09-symbolic-differentiation/CMakeFiles/symbolic_diff_assignment.dir/build.make H09-symbolic-differentiation/CMakeFiles/symbolic_diff_assignment.dir/build
+.PHONY : symbolic_diff_assignment/fast
+
+src/symbolic_diff.o: src/symbolic_diff.cxx.o
+.PHONY : src/symbolic_diff.o
+
+# target to build an object file
+src/symbolic_diff.cxx.o:
+	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(MAKE) -f H09-symbolic-differentiation/CMakeFiles/symbolic_diff.dir/build.make H09-symbolic-differentiation/CMakeFiles/symbolic_diff.dir/src/symbolic_diff.cxx.o
+.PHONY : src/symbolic_diff.cxx.o
+
+src/symbolic_diff.i: src/symbolic_diff.cxx.i
+.PHONY : src/symbolic_diff.i
+
+# target to preprocess a source file
+src/symbolic_diff.cxx.i:
+	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(MAKE) -f H09-symbolic-differentiation/CMakeFiles/symbolic_diff.dir/build.make H09-symbolic-differentiation/CMakeFiles/symbolic_diff.dir/src/symbolic_diff.cxx.i
+.PHONY : src/symbolic_diff.cxx.i
+
+src/symbolic_diff.s: src/symbolic_diff.cxx.s
+.PHONY : src/symbolic_diff.s
+
+# target to generate assembly for a file
+src/symbolic_diff.cxx.s:
+	cd /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build && $(MAKE) -f H09-symbolic-differentiation/CMakeFiles/symbolic_diff.dir/build.make H09-symbolic-differentiation/CMakeFiles/symbolic_diff.dir/src/symbolic_diff.cxx.s
+.PHONY : src/symbolic_diff.cxx.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -119,7 +171,12 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... symbolic_diff"
+	@echo "... symbolic_diff_assignment"
 	@echo "... test"
+	@echo "... src/symbolic_diff.o"
+	@echo "... src/symbolic_diff.i"
+	@echo "... src/symbolic_diff.s"
 .PHONY : help
 
 

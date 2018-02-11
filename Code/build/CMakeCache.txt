@@ -416,6 +416,12 @@ H08-unit_convertor_BINARY_DIR:STATIC=/home/shiva/Code/Cpp_shiv/TW3720TU/Code/bui
 H08-unit_convertor_SOURCE_DIR:STATIC=/home/shiva/Code/Cpp_shiv/TW3720TU/Code/H08-unit-converter
 
 //Value Computed by CMake
+H09-symbolic-differentiation_BINARY_DIR:STATIC=/home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/H09-symbolic-differentiation
+
+//Value Computed by CMake
+H09-symbolic-differentiation_SOURCE_DIR:STATIC=/home/shiva/Code/Cpp_shiv/TW3720TU/Code/H09-symbolic-differentiation
+
+//Value Computed by CMake
 H10-add-vectors_BINARY_DIR:STATIC=/home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/H10-add-vectors
 
 //Value Computed by CMake

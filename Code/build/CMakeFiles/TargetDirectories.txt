@@ -24,6 +24,7 @@
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/18-complex-conjugate/CMakeFiles/complex-conjugate.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/03-pointers/CMakeFiles/pointers.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/CMakeFiles/Continuous.dir
+/home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/H09-symbolic-differentiation/CMakeFiles/symbolic_diff.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/05-namespaces/CMakeFiles/namespaces.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/CMakeFiles/ContinuousCoverage.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/H05-copy-move/CMakeFiles/hcopy-move.dir
@@ -47,6 +48,7 @@
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/H02-arrays/CMakeFiles/arrays_assignment.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/CMakeFiles/NightlySubmit.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/02-variables-constants/CMakeFiles/variables-constants.dir
+/home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/H09-symbolic-differentiation/CMakeFiles/symbolic_diff_assignment.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/H04-points-triangles/CMakeFiles/points-triangles_assignment.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/CMakeFiles/ExperimentalCoverage.dir
 /home/shiva/Code/Cpp_shiv/TW3720TU/Code/build/CMakeFiles/Experimental.dir
