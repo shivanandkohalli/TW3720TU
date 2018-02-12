@@ -5,6 +5,8 @@
 #include<iomanip>
 #include<initializer_list>
 #include<exception>
+#include <map>
+#include <vector>
 
 using namespace std;
 
@@ -17,6 +19,25 @@ private:
     int length;
 
 public:
+
+	int getLength()
+	{
+		return length;
+	}
+
+	T getData(int i)
+	{
+		return(data[i]);
+	}
+
+	void setData(T val, int i)
+	{
+		if(i >= length)
+		{
+			throw ("Vector dimension 'i' out of bound");
+		}
+		data[i] = val;
+	}
     // Default constructor
     Vector()
     : data(nullptr), length(0) {}
@@ -107,7 +128,12 @@ public:
     	}
     }
 
-    Vector<T> operator*(T scalar) const
+    // Vector<int> tempFunction()
+    // {
+    // 	Vector<int> a;
+    // 	return a;	
+    // }
+    Vector<T> operator*(T scalar) const //->decltype(tempFunction())
     {
     	Vector<decltype(scalar*data[0])> result_vector(length);
 
@@ -153,6 +179,93 @@ public:
 
 };
 
+template<typename T>
+class Matrix
+{
+public:
+	Matrix()
+	{
+		this->rows = 0;
+		this->columns = 0;
+	}
+
+	Matrix(int m, int n)
+	{
+		this->rows = m;
+		this->columns = n;
+	}
+
+	~Matrix()
+	{
+
+	}
+
+	void AddElement(array<int,2> row_col, T value)
+	{
+		if(row_col[0] > this->rows || row_col[1] > this->columns)
+		{
+    		throw "Sparse Matrix dimension out of bound";
+		}
+
+		// Insert the element into the map if row and column is within the bounds
+		sparseMap.insert(pair<array<int,2>, T> (row_col, value));
+	}
+
+	Vector<T> Matvec (Vector<T> &vec) const
+	{
+		// Check if multiplication is possible
+		if(vec.getLength() != this->columns)
+		{
+			throw "Dimensions not compatible for matrix-vector multiplication";
+		}
+		// Iterate over all the key pairs and do the matrix-vector multiplication
+		//vector<array<int,2>> v;
+
+		// The resultant vector will have the size of row of the matrix
+		Vector<T> result_vector(this->rows); // TODO: Check how to determine its return type
+		
+		Vector<T> temp_vector(this->columns);
+
+		for(auto i=0; i<this->rows; i++)
+		{
+			for(auto j=0; j<this->columns; j++)
+			{
+				array <int, 2> r_c = {i,j};
+				if(sparseMap.find(r_c) != sparseMap.end())
+				{
+					temp_vector.setData(sparseMap.find(r_c)->second,j);
+				}
+				else
+				{
+					temp_vector.setData(0,j);
+				}
+			}
+			// cout << "temp_vector" << endl;
+			// temp_vector.Print();
+			// cout << "temp_vector" << endl;
+			auto dotResult = temp_vector.dot(temp_vector, vec);
+			result_vector.setData(dotResult,i);
+		}
+		cout << "\r\n";
+		// for(typename map<array<int,2>,T>::iterator it = sparseMap.begin(); it != sparseMap.end(); ++it) 
+		// {
+		// 	v.push_back(it->first);
+
+
+		// }
+
+		return result_vector;
+
+	}
+
+private:
+	int rows, columns;
+
+	map <array<int,2>, T> sparseMap;
+	
+};
+
+
 int main(){
 
 	Vector<int> a = {1, 2, 3, 4};
@@ -182,7 +295,7 @@ int main(){
 
 	e.Print();
 
-	e = a*5;
+	e = a*5.7456;
 
     e.Print();
      
@@ -190,6 +303,17 @@ int main(){
 
     cout << t << endl;
 
+    Matrix<int> m(4,4);
+
+    m.AddElement({0,0}, 1);
+	m.AddElement({1,1}, 10);
+	m.AddElement({2,2}, 100);
+	m.AddElement({3,3}, 1000);
+
+	Vector<int> testVec = {1,2,3,4};
+	testVec = m.Matvec(testVec);
+
+	testVec.Print();
 
 
 return 0;
