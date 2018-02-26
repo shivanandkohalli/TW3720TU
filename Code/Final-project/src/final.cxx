@@ -258,6 +258,38 @@ public:
 
 	}
 
+
+
+
+	
+	int cg(const Matrix<T> &A, const Vector<T> &b, Vector<T> &x, T tol, int maxiter)  //TODO: Check for specific values/conditions
+	{
+
+		Vector<T> p(maxiter);
+		Vector<T> r_k(maxiter);
+		Vector<T> r_k1(maxiter);
+
+		p = b - A.Matvec(x);
+		r_k = b - A.Matvec(x);
+
+		//for k = 0, 1, ..., maxiter-1
+		for(auto k = 0; k < maxiter; k++)
+		{
+			auto alpha = r_k.dot(r_k, r_k)/p.dot(p, A.Matvec(p));
+			x = x + p*alpha;
+			r_k1 = r_k - A.Matvec(p)*alpha;
+			if(r_k1.dot(r_k1, r_k1) < (tol*tol))
+			{
+				return k;
+			}
+			auto beta = r_k1.dot(r_k1, r_k1)/r_k.dot(r_k, r_k);
+			p = r_k1 + p*beta;
+			r_k = r_k1;
+		}
+		return -1;
+	}
+
+
 private:
 	int rows, columns;
 
@@ -315,6 +347,10 @@ int main(){
 
 	testVec.Print();
 
+	Vector<int> f = {1,2,3,4};
+
+	int j = m.cg(m, f, f, 0.05, 5);
+	cout << j << endl;
 
 return 0;
  
