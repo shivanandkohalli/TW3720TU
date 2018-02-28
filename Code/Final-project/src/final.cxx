@@ -211,8 +211,12 @@ public:
 		sparseMap.insert(pair<array<int,2>, T> (row_col, value));
 	}
 
-	Vector<T> Matvec (Vector<T> &vec) const
+    template <typename S>
+	auto Matvec (Vector<S> &vec) const
+	-> decltype(Vector<typename std::common_type<S,T>::type>)
 	{
+		using V = std::common_type<S,T>::type;
+
 		// Check if multiplication is possible
 		if(vec.getLength() != this->columns)
 		{
@@ -222,9 +226,9 @@ public:
 		//vector<array<int,2>> v;
 
 		// The resultant vector will have the size of row of the matrix
-		Vector<T> result_vector(this->rows); // TODO: Check how to determine its return type
+		Vector<V> result_vector(this->rows); // TODO: Check how to determine its return type
 		
-		Vector<T> temp_vector(this->columns);
+		Vector<V> temp_vector(this->columns);
 
 		for(auto i=0; i<this->rows; i++)
 		{
