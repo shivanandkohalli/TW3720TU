@@ -20,6 +20,7 @@ private:
 
 public:
 
+
 	int getLength()
 	{
 		return length;
@@ -128,18 +129,18 @@ public:
     	}
     }
 
-    // Vector<int> tempFunction()
-    // {
-    // 	Vector<int> a;
-    // 	return a;	
-    // }
-    Vector<T> operator*(T scalar) const //->decltype(tempFunction())
+    
+    template <typename S>
+    Vector<typename std::common_type<S,T>::type> operator*(S scalar) const //->decltype(tempFunction())
+    //->decltype(std::declval<T>()*std::declval<S>())
     {
-    	Vector<decltype(scalar*data[0])> result_vector(length);
+    	using V = typename std::common_type<S,T>::type;
+    	
+    	Vector<V> result_vector(length);
 
         for (auto i=0; i<length; i++)
         {
-            result_vector.data[i] = data[i]*scalar;
+            result_vector.setData(data[i]*scalar,i);
         }
 
         return result_vector;
@@ -212,10 +213,9 @@ public:
 	}
 
     template <typename S>
-	auto Matvec (Vector<S> &vec) const
-	-> decltype(Vector<typename std::common_type<S,T>::type>)
+	Vector<typename std::common_type<S,T>::type> Matvec (Vector<S> &vec) const
 	{
-		using V = std::common_type<S,T>::type;
+		using V = typename std::common_type<S,T>::type;
 
 		// Check if multiplication is possible
 		if(vec.getLength() != this->columns)
@@ -309,52 +309,59 @@ int main(){
 
 	Vector<int> b(5);
 	b = a;
+	double scalar = 2.5;
 
-	//b.Print();
+	Vector<double> a1 = {1.1, 2.2, 3.3, 4, 5};
+	// //b.Print();
 
-	//Vector<int> c = a + b;
+	// //Vector<int> c = a + b;
 
-	Vector<int> c;
-	try
-	{
-		c = a + d;
+	// Vector<int> c;
+	// try
+	// {
+	// 	c = a + d;
 		
-	}
-	catch(const char* msg)
-	{
-		cout << msg << endl;
-	}
+	// }
+	// catch(const char* msg)
+	// {
+	// 	cout << msg << endl;
+	// }
 
-	Vector<int> e = a - b;
+	// //Vector<int> e = a - b;
 	
-	c.Print();
+	// c.Print();
 
-	e.Print();
-
-	e = a*5.7456;
+	auto e = a*scalar;
 
     e.Print();
+
+    auto f = a1*2;
+
+    f.Print();
+
+
+
      
-    int t = a.dot(a, b);
+    // int t = a.dot(a, b);
 
-    cout << t << endl;
+    // cout << t << endl;
 
-    Matrix<int> m(4,4);
+ //    Matrix<int> m(4,4);
 
-    m.AddElement({0,0}, 1);
-	m.AddElement({1,1}, 10);
-	m.AddElement({2,2}, 100);
-	m.AddElement({3,3}, 1000);
+ //    m.AddElement({0,0}, 1);
+	// m.AddElement({1,1}, 10);
+	// m.AddElement({2,2}, 100);
+	// m.AddElement({3,3}, 1000);
 
-	Vector<int> testVec = {1,2,3,4};
-	testVec = m.Matvec(testVec);
+	// Vector<int> testVec = {1,2,3,4};
+	// testVec = m.Matvec(testVec);
 
-	testVec.Print();
+	// testVec.Print();
 
-	Vector<int> f = {1,2,3,4};
+	// Vector<int> f = {1,2,3,4};
 
-	int j = m.cg(m, f, f, 0.05, 5);
-	cout << j << endl;
+	// int j = m.cg(m, f, f, 0.05, 5);
+	// cout << j << endl;
 
 return 0;
  
