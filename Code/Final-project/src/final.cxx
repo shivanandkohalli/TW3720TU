@@ -21,12 +21,12 @@ private:
 public:
 
 
-	int getLength()
+	int getLength() const
 	{
 		return length;
 	}
 
-	T getData(int i)
+	T getData(int i) const
 	{
 		return(data[i]);
 	}
@@ -250,7 +250,6 @@ public:
 			auto dotResult = temp_vector.dot(temp_vector, vec);
 			result_vector.setData(dotResult,i);
 		}
-		cout << "\r\n";
 		// for(typename map<array<int,2>,T>::iterator it = sparseMap.begin(); it != sparseMap.end(); ++it) 
 		// {
 		// 	v.push_back(it->first);
@@ -263,38 +262,24 @@ public:
 	}
 
 
-
-
-	
-	int cg(const Matrix<T> &A, const Vector<T> &b, Vector<T> &x, T tol, int maxiter)  //TODO: Check for specific values/conditions
+	void printMatrix() const
 	{
-
-		Vector<T> p(maxiter);
-		Vector<T> r_k(maxiter);
-		Vector<T> r_k1(maxiter);
-		auto col = A.getColumn();
-		Vector<T> x_temp(col);
-
-		x = x_temp;
-
-		p = b - A.Matvec(x);
-		r_k = b - A.Matvec(x);
-
-		//for k = 0, 1, ..., maxiter-1
-		for(auto k = 0; k < maxiter; k++)
+		for(auto i=0;i<this->rows;i++)
 		{
-			auto alpha = r_k.dot(r_k, r_k)/p.dot(p, A.Matvec(p));
-			x = x + p*alpha;
-			r_k1 = r_k - A.Matvec(p)*alpha;
-			if(r_k1.dot(r_k1, r_k1) < (tol*tol))
+			for(auto j=0;j<this->columns;j++)
 			{
-				return k;
+				array <int, 2> r_c = {i,j};
+				if(sparseMap.find(r_c) != sparseMap.end())
+				{
+					cout << sparseMap.find(r_c)->second << "\t";
+				}
+				else
+				{
+					cout << 0 << "\t";
+				}
 			}
-			auto beta = r_k1.dot(r_k1, r_k1)/r_k.dot(r_k, r_k);
-			p = r_k1 + p*beta;
-			r_k = r_k1;
+			cout << "\n";
 		}
-		return -1;
 	}
 
 	int getRow() const
@@ -314,6 +299,109 @@ private:
 	
 };
 
+template<typename T>
+int cg(const Matrix<T> &A, const Vector<T> &b, Vector<T> &x, T tol, int maxiter)  //TODO: Check for specific values/conditions
+{
+
+	Vector<T> p(maxiter);
+	Vector<T> r_k(maxiter);
+	Vector<T> r_k1(maxiter);
+	auto col = A.getColumn();
+	Vector<T> x_temp(col);
+
+	x = x_temp;
+
+	p = b - A.Matvec(x);
+	r_k = b - A.Matvec(x);
+
+	//for k = 0, 1, ..., maxiter-1
+	for(auto k = 0; k < maxiter; k++)
+	{
+		auto alpha = r_k.dot(r_k, r_k)/p.dot(p, A.Matvec(p));
+		x = x + p*alpha;
+		r_k1 = r_k - A.Matvec(p)*alpha;
+		if(r_k1.dot(r_k1, r_k1) < (tol*tol))
+		{
+			return k;
+		}
+		auto beta = r_k1.dot(r_k1, r_k1)/r_k.dot(r_k, r_k);
+		p = r_k1 + p*beta;
+		r_k = r_k1;
+	}
+	return -1;
+}
+
+class Heat1D {
+
+private:
+	double alpha;
+	int m;
+	double dt;
+	Matrix<double> M;
+	Vector<double> w0;
+
+public:
+
+	Heat1D(double a,int points, double delta_t):alpha(a),m(points),dt(delta_t)
+	{
+		Matrix<double> M_temp(m,m); 
+		Vector<double> wo_temp(m);
+		
+		for(auto i=0;i<m;i++)
+		{
+			for(auto j=0;j<m;j++)
+			{
+				if(i==j)
+				{
+					M_temp.AddElement({i,j},1 + alpha*dt*(m+1)*(m+1)*2);
+				}
+				else if((abs(i-j)==1) && ((i>j?i:j)%m != 0))
+				{
+					M_temp.AddElement({i,j},-alpha*dt*(m+1)*(m+1));
+				}
+			}
+		}
+
+		for(auto i=0;i<m;i++)
+		{
+			double t = sin(3.142*((i+1.0)/(m+1)))*sin(3.142*(1.0/(m+1)));
+			wo_temp.setData(t,i);
+		}
+
+		M = M_temp;
+		w0 = wo_temp;
+
+		// cout << "Matrix \r\n";
+		// M.printMatrix();
+		// cout << "Vector \r\n";
+		// w0.Print();
+	}
+
+	Vector<double> exact(double t)const
+	{
+		Vector<double> exact_sol(m);
+		for(auto i=0;i<m;i++)
+		{
+			double temp = exp(-3.142*3.142*alpha*t)*w0.getData(i);
+			exact_sol.setData(temp,i);
+		}
+		return exact_sol;
+	}
+
+	Vector<double> solve(double t_end)const
+	{
+		Vector<double> num_sol(m);
+		Vector<double> temp;
+		temp = w0;
+		for(auto i=0;i<=int(t_end/dt)-1;i++)
+		{
+			int retval = cg<double>(M,temp,num_sol,0.001,10000);
+			temp = num_sol;
+		}
+		return num_sol;
+	}
+
+};
 
 int main(){
 
@@ -359,24 +447,34 @@ int main(){
 
     // cout << t << endl;
 
-    Matrix<double> m(2,2);
+ //    Matrix<double> m(2,2);
 
-    m.AddElement({0,0}, 1);
-	m.AddElement({0,1}, 2);
-	m.AddElement({1,0}, 3);
-	m.AddElement({1,1}, 4);
+ //    m.AddElement({0,0}, 1);
+	// m.AddElement({0,1}, 2);
+	// m.AddElement({1,0}, 3);
+	// m.AddElement({1,1}, 4);
 
-	// Vector<int> testVec = {1,2,3,4};
-	// testVec = m.Matvec(testVec);
+	// // Vector<int> testVec = {1,2,3,4};
+	// // testVec = m.Matvec(testVec);
 
-	// testVec.Print();
+	// // testVec.Print();
 
-	Vector<double> b = {8,18};
+	// Vector<double> b = {8,18};
 
-    Vector<double> x;
-	int j = m.cg(m, b, x, 0.05, 500);
-	cout << j << endl;
-	x.Print();
+ //    Vector<double> x;
+	// int j = m.cg(m, b, x, 0.05, 500);
+	// cout << j << endl;
+	// x.Print();
+
+
+	Heat1D h(0.3125,3,0.1);
+	cout << "Exact Solution" << endl;
+	Vector<double> sol = h.exact(1);
+	sol.Print();
+
+	cout << "Numerical Solution" << endl;
+	Vector<double> num_sol = h.solve(1);
+	num_sol.Print();
 
 return 0;
  
