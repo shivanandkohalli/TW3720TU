@@ -364,7 +364,7 @@ public:
 
 		for(auto i=0;i<m;i++)
 		{
-			double t = sin(3.142*((i+1.0)/(m+1)))*sin(3.142*(1.0/(m+1)));
+			double t = sin(3.142*((i+1.0)/(m+1)));
 			wo_temp.setData(t,i);
 		}
 
@@ -459,7 +459,7 @@ public:
 	Vector<double> exact(double t)const
 	{
 		Vector<double> exact_sol(m*m);
-		for(auto i=0;i<m;i++)
+		for(auto i=0;i<m*m;i++)
 		{
 			double temp = exp(-2*3.142*3.142*alpha*t)*w0.getData(i);
 			exact_sol.setData(temp,i);
@@ -558,11 +558,11 @@ int main(){
 
 	Heat2D h(0.3125,3,0.1);
 	cout << "Exact Solution" << endl;
-	Vector<double> sol = h.exact(1);
+	Vector<double> sol = h.exact(0.5);
 	sol.Print();
 
 	cout << "Numerical Solution" << endl;
-	Vector<double> num_sol = h.solve(1);
+	Vector<double> num_sol = h.solve(0.5);
 	num_sol.Print();
 return 0;
  
