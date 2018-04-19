@@ -7,6 +7,7 @@
 #include<exception>
 #include <map>
 #include <vector>
+#include <fstream>
 
 using namespace std;
 
@@ -163,11 +164,11 @@ public:
     	}   
     }
 
-    void Print()
+    void Print(ofstream &out_file)
     {
     	for(auto i= 0; i < length; i++)
 		{
-			cout << data[i] << endl;
+			out_file << data[i] << endl;
 		}
 	}
 
@@ -395,7 +396,7 @@ public:
 		temp = w0;
 		for(auto i=0;i<=int(t_end/dt)-1;i++)
 		{
-			int retval = cg<double>(M,temp,num_sol,0.001,10000);
+			int retval = cg<double>(M,temp,num_sol,0.1,1000);
 			temp = num_sol;
 		}
 		return num_sol;
@@ -474,7 +475,7 @@ public:
 		temp = w0;
 		for(auto i=0;i<=int(t_end/dt)-1;i++)
 		{
-			int retval = cg<double>(M,temp,num_sol,0.1,10000);
+			int retval = cg<double>(M,temp,num_sol,0.1,1000);
 			temp = num_sol;
 		}
 		return num_sol;
@@ -545,25 +546,28 @@ int main(){
 	// cout << j << endl;
 	// x.Print();
 
+	ofstream out_file;
+	out_file.open("output.txt");
 
-	// Heat1D h(0.3125,3,0.1);
-	// cout << "Exact Solution" << endl;
-	// Vector<double> sol = h.exact(1);
-	// sol.Print();
+	Heat1D h(0.3125,3,0.1);
+	out_file << "Exact Solution" << endl;
+	Vector<double> sol = h.exact(1);
+	sol.Print(out_file);
 
-	// cout << "Numerical Solution" << endl;
-	// Vector<double> num_sol = h.solve(1);
-	// num_sol.Print();
+	out_file << "Numerical Solution" << endl;
+	Vector<double> num_sol = h.solve(1);
+	num_sol.Print(out_file);
 
 
-	Heat2D h(0.3125,3,0.1);
-	cout << "Exact Solution" << endl;
-	Vector<double> sol = h.exact(0.5);
-	sol.Print();
 
-	cout << "Numerical Solution" << endl;
-	Vector<double> num_sol = h.solve(0.5);
-	num_sol.Print();
+	// Heat2D h(0.3125,3,0.1);
+	// out_file << "Exact Solution" << endl;
+	// Vector<double> sol = h.exact(0.5);
+	// sol.Print(out_file);
+
+	// out_file << "Numerical Solution" << endl;
+	// Vector<double> num_sol = h.solve(0.5);
+	// num_sol.Print(out_file);
 return 0;
  
 }
