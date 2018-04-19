@@ -45,7 +45,7 @@ public:
 
     // Constructor (sets length and allocates data)
     Vector(int n)
-    : data(new T[n]), length(n) {}
+    : data(new T[n]()), length(n) {}
 
     // Constructor (using initializer list)
     Vector(std::initializer_list<T> list)
@@ -272,6 +272,10 @@ public:
 		Vector<T> p(maxiter);
 		Vector<T> r_k(maxiter);
 		Vector<T> r_k1(maxiter);
+		auto col = A.getColumn();
+		Vector<T> x_temp(col);
+
+		x = x_temp;
 
 		p = b - A.Matvec(x);
 		r_k = b - A.Matvec(x);
@@ -293,6 +297,15 @@ public:
 		return -1;
 	}
 
+	int getRow() const
+	{
+		return this->rows;
+	}
+
+	int getColumn () const
+	{
+		return this->columns;
+	}
 
 private:
 	int rows, columns;
@@ -304,14 +317,14 @@ private:
 
 int main(){
 
-	Vector<int> a = {1, 2, 3, 4};
-	Vector<int> d = {1, 2, 3, 4, 5};
+	// Vector<int> a = {1, 2, 3, 4};
+	// Vector<int> d = {1, 2, 3, 4, 5};
 
-	Vector<int> b(5);
-	b = a;
-	double scalar = 2.5;
+	// Vector<int> b(5);
+	// b = a;
+	// double scalar = 2.5;
 
-	Vector<double> a1 = {1.1, 2.2, 3.3, 4, 5};
+	// Vector<double> a1 = {1.1, 2.2, 3.3, 4, 5};
 	// //b.Print();
 
 	// //Vector<int> c = a + b;
@@ -331,13 +344,13 @@ int main(){
 	
 	// c.Print();
 
-	auto e = a*scalar;
+	// auto e = a*scalar;
 
-    e.Print();
+ //    e.Print();
 
-    auto f = a1*2;
+ //    auto f = a1*2;
 
-    f.Print();
+ //    f.Print();
 
 
 
@@ -346,22 +359,24 @@ int main(){
 
     // cout << t << endl;
 
- //    Matrix<int> m(4,4);
+    Matrix<double> m(2,2);
 
- //    m.AddElement({0,0}, 1);
-	// m.AddElement({1,1}, 10);
-	// m.AddElement({2,2}, 100);
-	// m.AddElement({3,3}, 1000);
+    m.AddElement({0,0}, 1);
+	m.AddElement({0,1}, 2);
+	m.AddElement({1,0}, 3);
+	m.AddElement({1,1}, 4);
 
 	// Vector<int> testVec = {1,2,3,4};
 	// testVec = m.Matvec(testVec);
 
 	// testVec.Print();
 
-	// Vector<int> f = {1,2,3,4};
+	Vector<double> b = {8,18};
 
-	// int j = m.cg(m, f, f, 0.05, 5);
-	// cout << j << endl;
+    Vector<double> x;
+	int j = m.cg(m, b, x, 0.05, 500);
+	cout << j << endl;
+	x.Print();
 
 return 0;
  
