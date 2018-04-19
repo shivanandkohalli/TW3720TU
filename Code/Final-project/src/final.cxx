@@ -403,6 +403,85 @@ public:
 
 };
 
+
+
+
+class Heat2D {
+
+private:
+	double alpha;
+	int m;
+	double dt;
+	Matrix<double> M;
+	Vector<double> w0;
+
+public:
+
+	Heat2D(double a,int points, double delta_t):alpha(a),m(points),dt(delta_t)
+	{
+		Matrix<double> M_temp(m*m,m*m); 
+		Vector<double> wo_temp(m*m);
+		
+		for(auto i=0;i<m*m;i++)
+		{
+			for(auto j=0;j<m*m;j++)
+			{
+				if(i==j)
+				{
+					M_temp.AddElement({i,j},1 + alpha*dt*(m+1)*(m+1)*4);
+				}
+				else if((abs(i-j)==m) || (abs(i-j)==1) && ((i>j?i:j)%m != 0))
+				{
+					M_temp.AddElement({i,j},-alpha*dt*(m+1)*(m+1));
+				}
+			}
+		}
+
+		for(auto i=0;i<m;i++)
+		{
+			for(auto j=0;j<m;j++)
+			{
+				double t = sin(3.142*((i+1.0)/(m+1.0)))*sin(3.142*((j+1.0)/(m+1.0)));
+				wo_temp.setData(t,i*m+j);
+			}
+		}
+
+		M = M_temp;
+		w0 = wo_temp;
+
+		// cout << "Heat2D Matrix \r\n";
+		// M.printMatrix();
+		// cout << "Vector \r\n";
+		// w0.Print();
+	}
+
+	
+	Vector<double> exact(double t)const
+	{
+		Vector<double> exact_sol(m*m);
+		for(auto i=0;i<m;i++)
+		{
+			double temp = exp(-2*3.142*3.142*alpha*t)*w0.getData(i);
+			exact_sol.setData(temp,i);
+		}
+		return exact_sol;
+	}
+
+	Vector<double> solve(double t_end)const
+	{
+		Vector<double> num_sol(m*m);
+		Vector<double> temp;
+		temp = w0;
+		for(auto i=0;i<=int(t_end/dt)-1;i++)
+		{
+			int retval = cg<double>(M,temp,num_sol,0.1,10000);
+			temp = num_sol;
+		}
+		return num_sol;
+	}
+
+};
+
 int main(){
 
 	// Vector<int> a = {1, 2, 3, 4};
@@ -467,7 +546,17 @@ int main(){
 	// x.Print();
 
 
-	Heat1D h(0.3125,3,0.1);
+	// Heat1D h(0.3125,3,0.1);
+	// cout << "Exact Solution" << endl;
+	// Vector<double> sol = h.exact(1);
+	// sol.Print();
+
+	// cout << "Numerical Solution" << endl;
+	// Vector<double> num_sol = h.solve(1);
+	// num_sol.Print();
+
+
+	Heat2D h(0.3125,3,0.1);
 	cout << "Exact Solution" << endl;
 	Vector<double> sol = h.exact(1);
 	sol.Print();
@@ -475,7 +564,6 @@ int main(){
 	cout << "Numerical Solution" << endl;
 	Vector<double> num_sol = h.solve(1);
 	num_sol.Print();
-
 return 0;
  
 }
