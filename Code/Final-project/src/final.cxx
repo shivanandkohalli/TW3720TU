@@ -132,8 +132,7 @@ public:
 
     
     template <typename S>
-    Vector<typename std::common_type<S,T>::type> operator*(S scalar) const //->decltype(tempFunction())
-    //->decltype(std::declval<T>()*std::declval<S>())
+    Vector<typename std::common_type<S,T>::type> operator*(S scalar) const 
     {
     	using V = typename std::common_type<S,T>::type;
     	
@@ -164,7 +163,7 @@ public:
     	}   
     }
 
-    void Print(ofstream &out_file)
+    void Print(ofstream &out_file) const
     {
     	for(auto i= 0; i < length; i++)
 		{
@@ -202,7 +201,7 @@ public:
 
 	}
 
-	void AddElement(array<int,2> row_col, T value)
+	void AddElement(const array<int,2> row_col, const T value)
 	{
 		if(row_col[0] > this->rows || row_col[1] > this->columns)
 		{
@@ -227,7 +226,7 @@ public:
 		//vector<array<int,2>> v;
 
 		// The resultant vector will have the size of row of the matrix
-		Vector<V> result_vector(this->rows); // TODO: Check how to determine its return type
+		Vector<V> result_vector(this->rows);
 		
 		Vector<V> temp_vector(this->columns);
 
@@ -245,19 +244,9 @@ public:
 					temp_vector.setData(0,j);
 				}
 			}
-			// cout << "temp_vector" << endl;
-			// temp_vector.Print();
-			// cout << "temp_vector" << endl;
 			auto dotResult = temp_vector.dot(temp_vector, vec);
 			result_vector.setData(dotResult,i);
 		}
-		// for(typename map<array<int,2>,T>::iterator it = sparseMap.begin(); it != sparseMap.end(); ++it) 
-		// {
-		// 	v.push_back(it->first);
-
-
-		// }
-
 		return result_vector;
 
 	}
@@ -301,7 +290,7 @@ private:
 };
 
 template<typename T>
-int cg(const Matrix<T> &A, const Vector<T> &b, Vector<T> &x, T tol, int maxiter)  //TODO: Check for specific values/conditions
+int cg(const Matrix<T> &A, const Vector<T> &b, Vector<T> &x, T tol, int maxiter) 
 {
 
 	Vector<T> p(maxiter);
@@ -378,7 +367,7 @@ public:
 		// w0.Print();
 	}
 
-	Vector<double> exact(double t)const
+	Vector<double> exact(const double t)const
 	{
 		Vector<double> exact_sol(m);
 		for(auto i=0;i<m;i++)
@@ -389,7 +378,7 @@ public:
 		return exact_sol;
 	}
 
-	Vector<double> solve(double t_end)const
+	Vector<double> solve(const double t_end)const
 	{
 		Vector<double> num_sol(m);
 		Vector<double> temp;
@@ -450,14 +439,10 @@ public:
 		M = M_temp;
 		w0 = wo_temp;
 
-		// cout << "Heat2D Matrix \r\n";
-		// M.printMatrix();
-		// cout << "Vector \r\n";
-		// w0.Print();
 	}
 
 	
-	Vector<double> exact(double t)const
+	Vector<double> exact(const double t)const
 	{
 		Vector<double> exact_sol(m*m);
 		for(auto i=0;i<m*m;i++)
@@ -468,7 +453,7 @@ public:
 		return exact_sol;
 	}
 
-	Vector<double> solve(double t_end)const
+	Vector<double> solve(const double t_end)const
 	{
 		Vector<double> num_sol(m*m);
 		Vector<double> temp;
@@ -485,89 +470,70 @@ public:
 
 int main(){
 
-	// Vector<int> a = {1, 2, 3, 4};
-	// Vector<int> d = {1, 2, 3, 4, 5};
+	double alpha;
+	int m;
+	double dt;
+	double t;
 
-	// Vector<int> b(5);
-	// b = a;
-	// double scalar = 2.5;
+	int dimension;
 
-	// Vector<double> a1 = {1.1, 2.2, 3.3, 4, 5};
-	// //b.Print();
+	ofstream out_file; // Write to an output file
 
-	// //Vector<int> c = a + b;
+	Vector<double> sol;
+	Vector<double> num_sol ;
+	out_file.open("output.txt"); 
 
-	// Vector<int> c;
-	// try
-	// {
-	// 	c = a + d;
-		
-	// }
-	// catch(const char* msg)
-	// {
-	// 	cout << msg << endl;
-	// }
 
-	// //Vector<int> e = a - b;
+	cout << "Enter diffusion coefficient (alpha)" << endl;
+	cin >> alpha;
+
+	cout << "Enter the number of points per dimension" << endl;
+	cin >> m;
+
+	cout << "Enter timestep (dt)" << endl;
+	cin >> dt;
+
+	cout << "Enter time t" << endl;
+	cin >> t;
+
+	cout << "Enter 1 for 1D, Enter 2 for 2D" << endl;
+	cin >> dimension;
 	
-	// c.Print();
 
-	// auto e = a*scalar;
+	if(dimension == 1)
+	{
+		Heat1D h(alpha,m,dt);
+		out_file << "Exact Solution" << endl;
+		sol = h.exact(t);
+		sol.Print(out_file);
 
- //    e.Print();
+		out_file << "Numerical Solution" << endl;
+		num_sol = h.solve(1);
+		num_sol.Print(out_file);
+	}
+	else if(dimension == 2)
+	{
+		Heat2D h(alpha,m,dt);
+		out_file << "Exact Solution" << endl;
+		sol = h.exact(0.5);
+		sol.Print(out_file);
 
- //    auto f = a1*2;
+		out_file << "Numerical Solution" << endl;
+		num_sol = h.solve(0.5);
+		num_sol.Print(out_file);
+	}
+	else
+	{
+		cout << "Enter the correct dimension value, Exiting!" << endl;
+		exit(1);
+	}
 
- //    f.Print();
+	out_file << "Diff" << endl;
+	Vector<double> diff = num_sol - sol;
+	diff.Print(out_file);
 
+	cout << "Program executed successfully, check 'output.txt' file" << endl;
 
-
-     
-    // int t = a.dot(a, b);
-
-    // cout << t << endl;
-
- //    Matrix<double> m(2,2);
-
- //    m.AddElement({0,0}, 1);
-	// m.AddElement({0,1}, 2);
-	// m.AddElement({1,0}, 3);
-	// m.AddElement({1,1}, 4);
-
-	// // Vector<int> testVec = {1,2,3,4};
-	// // testVec = m.Matvec(testVec);
-
-	// // testVec.Print();
-
-	// Vector<double> b = {8,18};
-
- //    Vector<double> x;
-	// int j = m.cg(m, b, x, 0.05, 500);
-	// cout << j << endl;
-	// x.Print();
-
-	ofstream out_file;
-	out_file.open("output.txt");
-
-	Heat1D h(0.3125,3,0.1);
-	out_file << "Exact Solution" << endl;
-	Vector<double> sol = h.exact(1);
-	sol.Print(out_file);
-
-	out_file << "Numerical Solution" << endl;
-	Vector<double> num_sol = h.solve(1);
-	num_sol.Print(out_file);
-
-
-
-	// Heat2D h(0.3125,3,0.1);
-	// out_file << "Exact Solution" << endl;
-	// Vector<double> sol = h.exact(0.5);
-	// sol.Print(out_file);
-
-	// out_file << "Numerical Solution" << endl;
-	// Vector<double> num_sol = h.solve(0.5);
-	// num_sol.Print(out_file);
 return 0;
  
 }
